@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		314C1264347E1821FC2AEA94 /* libPods-PizzaSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9B01DB19B736E7AB9856BB /* libPods-PizzaSearch.a */; };
+		8467BEAB1BB00C89007DF6EE /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 8467BEA11BB00C89007DF6EE /* Group.m */; };
+		8467BEAC1BB00C89007DF6EE /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 8467BEA31BB00C89007DF6EE /* Item.m */; };
+		8467BEAD1BB00C89007DF6EE /* PizzaPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8467BEA51BB00C89007DF6EE /* PizzaPlace.m */; };
+		8467BEAE1BB00C89007DF6EE /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8467BEA81BB00C89007DF6EE /* DetailViewController.m */; };
+		8467BEAF1BB00C89007DF6EE /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8467BEAA1BB00C89007DF6EE /* MasterViewController.m */; };
+		847700551BAD5585004EE1FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847700541BAD5585004EE1FB /* main.m */; };
+		847700581BAD5585004EE1FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847700571BAD5585004EE1FB /* AppDelegate.m */; };
+		8477005B1BAD5585004EE1FB /* PizzaSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 847700591BAD5585004EE1FB /* PizzaSearch.xcdatamodeld */; };
+		847700641BAD5585004EE1FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847700621BAD5585004EE1FB /* Main.storyboard */; };
+		847700661BAD5585004EE1FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847700651BAD5585004EE1FB /* Images.xcassets */; };
+		847700691BAD5585004EE1FB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847700671BAD5585004EE1FB /* LaunchScreen.xib */; };
+		847700751BAD5585004EE1FB /* PizzaSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 847700741BAD5585004EE1FB /* PizzaSearchTests.m */; };
+		847D5EDC1BAE946500D00FC3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D5EDB1BAE946500D00FC3 /* DataManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8477006F1BAD5585004EE1FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 847700471BAD5585004EE1FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8477004E1BAD5585004EE1FB;
+			remoteInfo = PizzaSearch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10F7CE23DD9AC5CC08350323 /* Pods-PizzaSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaSearch/Pods-PizzaSearch.release.xcconfig"; sourceTree = "<group>"; };
+		8467BEA01BB00C89007DF6EE /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		8467BEA11BB00C89007DF6EE /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		8467BEA21BB00C89007DF6EE /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		8467BEA31BB00C89007DF6EE /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		8467BEA41BB00C89007DF6EE /* PizzaPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PizzaPlace.h; sourceTree = "<group>"; };
+		8467BEA51BB00C89007DF6EE /* PizzaPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PizzaPlace.m; sourceTree = "<group>"; };
+		8467BEA71BB00C89007DF6EE /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		8467BEA81BB00C89007DF6EE /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		8467BEA91BB00C89007DF6EE /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		8467BEAA1BB00C89007DF6EE /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		8477004F1BAD5585004EE1FB /* PizzaSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		847700531BAD5585004EE1FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847700541BAD5585004EE1FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		847700561BAD5585004EE1FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		847700571BAD5585004EE1FB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8477005A1BAD5585004EE1FB /* PizzaSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PizzaSearch.xcdatamodel; sourceTree = "<group>"; };
+		847700631BAD5585004EE1FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		847700651BAD5585004EE1FB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		847700681BAD5585004EE1FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8477006E1BAD5585004EE1FB /* PizzaSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PizzaSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		847700731BAD5585004EE1FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847700741BAD5585004EE1FB /* PizzaSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PizzaSearchTests.m; sourceTree = "<group>"; };
+		847D5EDA1BAE946500D00FC3 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		847D5EDB1BAE946500D00FC3 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		9F9B01DB19B736E7AB9856BB /* libPods-PizzaSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PizzaSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5516588267AEF5172F691FD /* Pods-PizzaSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaSearch/Pods-PizzaSearch.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8477004C1BAD5585004EE1FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				314C1264347E1821FC2AEA94 /* libPods-PizzaSearch.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8477006B1BAD5585004EE1FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		29955A98CCC6953B1CB1B564 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C5516588267AEF5172F691FD /* Pods-PizzaSearch.debug.xcconfig */,
+				10F7CE23DD9AC5CC08350323 /* Pods-PizzaSearch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7D040EA157B005929F3DB8A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F9B01DB19B736E7AB9856BB /* libPods-PizzaSearch.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8467BE9F1BB00C89007DF6EE /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				8467BEA01BB00C89007DF6EE /* Group.h */,
+				8467BEA11BB00C89007DF6EE /* Group.m */,
+				8467BEA21BB00C89007DF6EE /* Item.h */,
+				8467BEA31BB00C89007DF6EE /* Item.m */,
+				8467BEA41BB00C89007DF6EE /* PizzaPlace.h */,
+				8467BEA51BB00C89007DF6EE /* PizzaPlace.m */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		8467BEA61BB00C89007DF6EE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8467BEA71BB00C89007DF6EE /* DetailViewController.h */,
+				8467BEA81BB00C89007DF6EE /* DetailViewController.m */,
+				8467BEA91BB00C89007DF6EE /* MasterViewController.h */,
+				8467BEAA1BB00C89007DF6EE /* MasterViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		847700461BAD5585004EE1FB = {
+			isa = PBXGroup;
+			children = (
+				847700511BAD5585004EE1FB /* PizzaSearch */,
+				847700711BAD5585004EE1FB /* PizzaSearchTests */,
+				847700501BAD5585004EE1FB /* Products */,
+				29955A98CCC6953B1CB1B564 /* Pods */,
+				7D040EA157B005929F3DB8A8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		847700501BAD5585004EE1FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8477004F1BAD5585004EE1FB /* PizzaSearch.app */,
+				8477006E1BAD5585004EE1FB /* PizzaSearchTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		847700511BAD5585004EE1FB /* PizzaSearch */ = {
+			isa = PBXGroup;
+			children = (
+				8467BE9F1BB00C89007DF6EE /* DataModels */,
+				8467BEA61BB00C89007DF6EE /* ViewControllers */,
+				847D5ED91BAE944900D00FC3 /* Managers */,
+				847700561BAD5585004EE1FB /* AppDelegate.h */,
+				847700571BAD5585004EE1FB /* AppDelegate.m */,
+				847700621BAD5585004EE1FB /* Main.storyboard */,
+				847700651BAD5585004EE1FB /* Images.xcassets */,
+				847700671BAD5585004EE1FB /* LaunchScreen.xib */,
+				847700591BAD5585004EE1FB /* PizzaSearch.xcdatamodeld */,
+				847700521BAD5585004EE1FB /* Supporting Files */,
+			);
+			path = PizzaSearch;
+			sourceTree = "<group>";
+		};
+		847700521BAD5585004EE1FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				847700531BAD5585004EE1FB /* Info.plist */,
+				847700541BAD5585004EE1FB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		847700711BAD5585004EE1FB /* PizzaSearchTests */ = {
+			isa = PBXGroup;
+			children = (
+				847700741BAD5585004EE1FB /* PizzaSearchTests.m */,
+				847700721BAD5585004EE1FB /* Supporting Files */,
+			);
+			path = PizzaSearchTests;
+			sourceTree = "<group>";
+		};
+		847700721BAD5585004EE1FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				847700731BAD5585004EE1FB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		847D5ED91BAE944900D00FC3 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				847D5EDA1BAE946500D00FC3 /* DataManager.h */,
+				847D5EDB1BAE946500D00FC3 /* DataManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8477004E1BAD5585004EE1FB /* PizzaSearch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847700781BAD5585004EE1FB /* Build configuration list for PBXNativeTarget "PizzaSearch" */;
+			buildPhases = (
+				8B4DDDE01009447ABFDFB40C /* Check Pods Manifest.lock */,
+				8477004B1BAD5585004EE1FB /* Sources */,
+				8477004C1BAD5585004EE1FB /* Frameworks */,
+				8477004D1BAD5585004EE1FB /* Resources */,
+				D86EDC681108A53B48D37761 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PizzaSearch;
+			productName = PizzaSearch;
+			productReference = 8477004F1BAD5585004EE1FB /* PizzaSearch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8477006D1BAD5585004EE1FB /* PizzaSearchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8477007B1BAD5585004EE1FB /* Build configuration list for PBXNativeTarget "PizzaSearchTests" */;
+			buildPhases = (
+				8477006A1BAD5585004EE1FB /* Sources */,
+				8477006B1BAD5585004EE1FB /* Frameworks */,
+				8477006C1BAD5585004EE1FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				847700701BAD5585004EE1FB /* PBXTargetDependency */,
+			);
+			name = PizzaSearchTests;
+			productName = PizzaSearchTests;
+			productReference = 8477006E1BAD5585004EE1FB /* PizzaSearchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		847700471BAD5585004EE1FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = Anna;
+				TargetAttributes = {
+					8477004E1BAD5585004EE1FB = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					8477006D1BAD5585004EE1FB = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 8477004E1BAD5585004EE1FB;
+					};
+				};
+			};
+			buildConfigurationList = 8477004A1BAD5585004EE1FB /* Build configuration list for PBXProject "PizzaSearch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 847700461BAD5585004EE1FB;
+			productRefGroup = 847700501BAD5585004EE1FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8477004E1BAD5585004EE1FB /* PizzaSearch */,
+				8477006D1BAD5585004EE1FB /* PizzaSearchTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8477004D1BAD5585004EE1FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847700641BAD5585004EE1FB /* Main.storyboard in Resources */,
+				847700691BAD5585004EE1FB /* LaunchScreen.xib in Resources */,
+				847700661BAD5585004EE1FB /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8477006C1BAD5585004EE1FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8B4DDDE01009447ABFDFB40C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D86EDC681108A53B48D37761 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PizzaSearch/Pods-PizzaSearch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8477004B1BAD5585004EE1FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8467BEAC1BB00C89007DF6EE /* Item.m in Sources */,
+				8467BEAD1BB00C89007DF6EE /* PizzaPlace.m in Sources */,
+				847700581BAD5585004EE1FB /* AppDelegate.m in Sources */,
+				8467BEAE1BB00C89007DF6EE /* DetailViewController.m in Sources */,
+				847700551BAD5585004EE1FB /* main.m in Sources */,
+				8467BEAB1BB00C89007DF6EE /* Group.m in Sources */,
+				8477005B1BAD5585004EE1FB /* PizzaSearch.xcdatamodeld in Sources */,
+				8467BEAF1BB00C89007DF6EE /* MasterViewController.m in Sources */,
+				847D5EDC1BAE946500D00FC3 /* DataManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8477006A1BAD5585004EE1FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847700751BAD5585004EE1FB /* PizzaSearchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		847700701BAD5585004EE1FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8477004E1BAD5585004EE1FB /* PizzaSearch */;
+			targetProxy = 8477006F1BAD5585004EE1FB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		847700621BAD5585004EE1FB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				847700631BAD5585004EE1FB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		847700671BAD5585004EE1FB /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				847700681BAD5585004EE1FB /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		847700761BAD5585004EE1FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		847700771BAD5585004EE1FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		847700791BAD5585004EE1FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5516588267AEF5172F691FD /* Pods-PizzaSearch.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PizzaSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8477007A1BAD5585004EE1FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10F7CE23DD9AC5CC08350323 /* Pods-PizzaSearch.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PizzaSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8477007C1BAD5585004EE1FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PizzaSearchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PizzaSearch.app/PizzaSearch";
+			};
+			name = Debug;
+		};
+		8477007D1BAD5585004EE1FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PizzaSearchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PizzaSearch.app/PizzaSearch";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8477004A1BAD5585004EE1FB /* Build configuration list for PBXProject "PizzaSearch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847700761BAD5585004EE1FB /* Debug */,
+				847700771BAD5585004EE1FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		847700781BAD5585004EE1FB /* Build configuration list for PBXNativeTarget "PizzaSearch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847700791BAD5585004EE1FB /* Debug */,
+				8477007A1BAD5585004EE1FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8477007B1BAD5585004EE1FB /* Build configuration list for PBXNativeTarget "PizzaSearchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8477007C1BAD5585004EE1FB /* Debug */,
+				8477007D1BAD5585004EE1FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		847700591BAD5585004EE1FB /* PizzaSearch.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8477005A1BAD5585004EE1FB /* PizzaSearch.xcdatamodel */,
+			);
+			currentVersion = 8477005A1BAD5585004EE1FB /* PizzaSearch.xcdatamodel */;
+			path = PizzaSearch.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 847700471BAD5585004EE1FB /* Project object */;
+}
