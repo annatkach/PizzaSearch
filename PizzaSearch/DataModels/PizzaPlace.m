@@ -15,4 +15,10 @@
 @dynamic name;
 @dynamic distance;
 
+@dynamic address;
+@dynamic checkinsCount;
+@dynamic openUntil;
+@dynamic website;
+@dynamic phone;
+
 @end

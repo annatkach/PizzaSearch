@@ -11,8 +11,17 @@
 @class PizzaPlace;
 @protocol NSFetchedResultsControllerDelegate;
 
+@protocol DataManagerProtocol <NSObject>
+
+- (void)dataManagerCompleteLoading;
+- (void)dataManagerLoadedAllData;
+- (void)dataManagerLoadingFailed;
+
+@end
 
 @interface DataManager : NSObject
+
+@property (nonatomic, weak) id<DataManagerProtocol> delegate;
 
 + (DataManager*)sharedInstance;
 

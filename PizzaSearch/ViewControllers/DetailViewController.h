@@ -13,7 +13,6 @@
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) PizzaPlace *pizzaPlace;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @end
 

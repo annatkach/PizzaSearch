@@ -16,4 +16,10 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * distance;
 
+@property (nonatomic, retain) NSString * address;
+@property (nonatomic, retain) NSNumber * checkinsCount;
+@property (nonatomic, retain) NSString * openUntil;
+@property (nonatomic, retain) NSString * phone;
+@property (nonatomic, retain) NSString * website;
+
 @end

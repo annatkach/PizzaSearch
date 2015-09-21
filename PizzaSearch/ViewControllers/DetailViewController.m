@@ -11,6 +11,12 @@
 
 @interface DetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLbl;
+@property (nonatomic, weak) IBOutlet UILabel *addressLbl;
+@property (nonatomic, weak) IBOutlet UILabel *phoneLbl;
+@property (nonatomic, weak) IBOutlet UILabel *checkinsLbl;
+@property (nonatomic, weak) IBOutlet UILabel *openUntilLbl;
+
 @end
 
 @implementation DetailViewController
@@ -33,7 +39,12 @@
     // Update the user interface for the detail item.
     if (self.pizzaPlace)
     {
-        self.detailDescriptionLabel.text = self.pizzaPlace.name;
+        self.nameLbl.text = self.pizzaPlace.name;
+        
+        self.addressLbl.text = [NSString stringWithFormat:@"Distance: %@m", self.pizzaPlace.distance];
+        self.phoneLbl.text = [NSString stringWithFormat:@"Phone: %@m", self.pizzaPlace.phone];
+        self.checkinsLbl.text = [NSString stringWithFormat:@"%@ checkins", self.pizzaPlace.checkinsCount];
+        self.openUntilLbl.text = self.pizzaPlace.openUntil;
     }
 }
 

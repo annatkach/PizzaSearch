@@ -20,6 +20,10 @@
 		847700661BAD5585004EE1FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847700651BAD5585004EE1FB /* Images.xcassets */; };
 		847700691BAD5585004EE1FB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847700671BAD5585004EE1FB /* LaunchScreen.xib */; };
 		847700751BAD5585004EE1FB /* PizzaSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 847700741BAD5585004EE1FB /* PizzaSearchTests.m */; };
+		847A83031BB05C6B0044909D /* SpinnerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A83011BB05C6B0044909D /* SpinnerTableViewCell.m */; };
+		847A83041BB05C6B0044909D /* SpinnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847A83021BB05C6B0044909D /* SpinnerTableViewCell.xib */; };
+		847A83081BB0619F0044909D /* PizzaPlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A83061BB0619F0044909D /* PizzaPlaceTableViewCell.m */; };
+		847A83091BB0619F0044909D /* PizzaPlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847A83071BB0619F0044909D /* PizzaPlaceTableViewCell.xib */; };
 		847D5EDC1BAE946500D00FC3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D5EDB1BAE946500D00FC3 /* DataManager.m */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +61,12 @@
 		8477006E1BAD5585004EE1FB /* PizzaSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PizzaSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		847700731BAD5585004EE1FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847700741BAD5585004EE1FB /* PizzaSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PizzaSearchTests.m; sourceTree = "<group>"; };
+		847A83001BB05C6B0044909D /* SpinnerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinnerTableViewCell.h; sourceTree = "<group>"; };
+		847A83011BB05C6B0044909D /* SpinnerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinnerTableViewCell.m; sourceTree = "<group>"; };
+		847A83021BB05C6B0044909D /* SpinnerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpinnerTableViewCell.xib; sourceTree = "<group>"; };
+		847A83051BB0619F0044909D /* PizzaPlaceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PizzaPlaceTableViewCell.h; sourceTree = "<group>"; };
+		847A83061BB0619F0044909D /* PizzaPlaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PizzaPlaceTableViewCell.m; sourceTree = "<group>"; };
+		847A83071BB0619F0044909D /* PizzaPlaceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PizzaPlaceTableViewCell.xib; sourceTree = "<group>"; };
 		847D5EDA1BAE946500D00FC3 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		847D5EDB1BAE946500D00FC3 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		9F9B01DB19B736E7AB9856BB /* libPods-PizzaSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PizzaSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +156,7 @@
 		847700511BAD5585004EE1FB /* PizzaSearch */ = {
 			isa = PBXGroup;
 			children = (
+				847A82FF1BB05C4F0044909D /* TableViewCells */,
 				8467BE9F1BB00C89007DF6EE /* DataModels */,
 				8467BEA61BB00C89007DF6EE /* ViewControllers */,
 				847D5ED91BAE944900D00FC3 /* Managers */,
@@ -184,6 +195,19 @@
 				847700731BAD5585004EE1FB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		847A82FF1BB05C4F0044909D /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				847A83001BB05C6B0044909D /* SpinnerTableViewCell.h */,
+				847A83011BB05C6B0044909D /* SpinnerTableViewCell.m */,
+				847A83021BB05C6B0044909D /* SpinnerTableViewCell.xib */,
+				847A83051BB0619F0044909D /* PizzaPlaceTableViewCell.h */,
+				847A83061BB0619F0044909D /* PizzaPlaceTableViewCell.m */,
+				847A83071BB0619F0044909D /* PizzaPlaceTableViewCell.xib */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		847D5ED91BAE944900D00FC3 /* Managers */ = {
@@ -278,8 +302,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				847700641BAD5585004EE1FB /* Main.storyboard in Resources */,
+				847A83091BB0619F0044909D /* PizzaPlaceTableViewCell.xib in Resources */,
 				847700691BAD5585004EE1FB /* LaunchScreen.xib in Resources */,
 				847700661BAD5585004EE1FB /* Images.xcassets in Resources */,
+				847A83041BB05C6B0044909D /* SpinnerTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,10 +357,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8467BEAC1BB00C89007DF6EE /* Item.m in Sources */,
+				847A83031BB05C6B0044909D /* SpinnerTableViewCell.m in Sources */,
 				8467BEAD1BB00C89007DF6EE /* PizzaPlace.m in Sources */,
 				847700581BAD5585004EE1FB /* AppDelegate.m in Sources */,
 				8467BEAE1BB00C89007DF6EE /* DetailViewController.m in Sources */,
 				847700551BAD5585004EE1FB /* main.m in Sources */,
+				847A83081BB0619F0044909D /* PizzaPlaceTableViewCell.m in Sources */,
 				8467BEAB1BB00C89007DF6EE /* Group.m in Sources */,
 				8477005B1BAD5585004EE1FB /* PizzaSearch.xcdatamodeld in Sources */,
 				8467BEAF1BB00C89007DF6EE /* MasterViewController.m in Sources */,

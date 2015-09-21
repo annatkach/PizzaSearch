@@ -27,6 +27,9 @@
 @interface DataManager ()
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic) NSUInteger pageIndex;
+@property (nonatomic) BOOL isLoading;
+@property (nonatomic) BOOL isLoadedAllData;
 
 @end
 
@@ -53,6 +56,7 @@
     if (self = [super init])
     {
         [self configureRestKit];
+        [self clearAllData];
         [self setupFetchedResultsController];
     }
     
@@ -63,6 +67,8 @@
 
 - (void)configureRestKit
 {
+    RKLogConfigureByName("*", RKLogLevelOff);
+    
     // Initialize RestKit
     NSURL *baseURL = [NSURL URLWithString:kFOURSQUARE_API_BASE_URL];
     RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:baseURL];
@@ -107,13 +113,17 @@
     RKRelationshipMapping *itemRelationship = [RKRelationshipMapping relationshipMappingFromKeyPath:@"items" toKeyPath:@"items" withMapping:itemMapping];
     [groupMapping addPropertyMapping:itemRelationship];
     
-    
     RKEntityMapping *pizzaPlaceMapping = [RKEntityMapping mappingForEntityForName:@"PizzaPlace" inManagedObjectStore:managedObjectStore];
     [pizzaPlaceMapping addAttributeMappingsFromDictionary:
                                                     @{
                                                        @"name":@"name",
                                                        @"id" : @"placeId",
-                                                       @"location.distance" : @"distance"
+                                                       @"location.distance" : @"distance",
+                                                       @"hours.status" : @"openUntil",
+                                                       @"address" : @"address",
+                                                       @"stats.checkinsCount" : @"checkinsCount",
+                                                       @"contact.formattedPhone" : @"phone",
+                                                       @"url" : @"website"
                                                      }];
     pizzaPlaceMapping.identificationAttributes = @[@"placeId"];
     RKRelationshipMapping *pizzaPlaceRelationship = [RKRelationshipMapping relationshipMappingFromKeyPath:@"venue" toKeyPath:@"pizzaPlace" withMapping:pizzaPlaceMapping];
@@ -124,28 +134,96 @@
 
 #pragma mark - PizzaPlaces 
 
+- (BOOL)canLoad
+{
+    return !self.isLoadedAllData && !self.isLoading;
+}
+
 - (void)loadPizzaPlaces
 {
-    NSString *latLon = @"40.7029741,-74.2598672";
+    if (![self canLoad])
+    {
+        return;
+    }
+    
+    self.isLoading = YES;
+    
+//    NSString *latLon = @"40.7029741,-74.2598672";
+    NSString *latLon = @"40.7143528,-74.0059731";
     
     NSDictionary *queryParams = @{@"ll" : latLon,
                                   @"client_id" : kFOURSQUARE_CLIENT_ID,
                                   @"client_secret" : kFOURSQUARE_CLIENT_SECRET,
                                   @"categoryId" : kFOURSQUARE_CATEGORY_ID,
                                   @"v" : kFOURSQUARE_VERSION,
-                                  @"limit" : [NSNumber numberWithInt:kFOURSQUARE_EXPLORE_LIMIT]
+                                  @"limit" : [NSNumber numberWithInt:kFOURSQUARE_EXPLORE_LIMIT],
+                                  @"offset" : [NSNumber numberWithLong:kFOURSQUARE_EXPLORE_LIMIT * self.pageIndex],
+                                  @"sortByDistance" : @"1"
                                   };
+    
+    NSUInteger previousPizzaPlacesCount = [self pizzaPlacesCount];
     
     [[RKObjectManager sharedManager] getObjectsAtPath:kFOURSQUARE_API_SEARCH_URL
                                            parameters:queryParams
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
                                               {
-                                                  [self saveData];
+                                                  id array = mappingResult.array;
+                                                  
+                                                  long count = 0;
+                                                  for (Group *group in array)
+                                                  {
+                                                      count += group.items.count;
+                                                      for (Item *item in group.items)
+                                                      {
+                                                          NSLog(@"item.vanue.name %@, %@m", item.pizzaPlace.name, item.pizzaPlace.distance);
+                                                      }
+                                                  }
+                                                  NSLog(@"0 ---loaded count %lu", count);
+                                                  
+                                                  [self loadedPizzaPlacesSuccessfulWithPreviousPizzaPlacesCount:previousPizzaPlacesCount];
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error)
                                               {
-                                                  NSLog(@"What do you mean by 'there is no coffee?': %@", error);
+                                                  [self loadedPizzaPlacesFailedWithError:error];
                                               }];
+}
+
+- (void)loadedPizzaPlacesSuccessfulWithPreviousPizzaPlacesCount:(NSUInteger)previousPizzaPlacesCount
+{
+    [self saveData];
+    
+    self.pageIndex ++;
+
+    self.isLoading = NO;
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(dataManagerCompleteLoading)])
+    {
+        [self.delegate dataManagerCompleteLoading];
+    }
+    
+    NSUInteger pizzaPlacesCount = [self pizzaPlacesCount];
+    NSLog(@"[self pizzaPlacesCount] %lu", [self pizzaPlacesCount]);
+    if ((pizzaPlacesCount - previousPizzaPlacesCount) < kFOURSQUARE_EXPLORE_LIMIT)
+    {
+        self.isLoadedAllData = YES;
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(dataManagerLoadedAllData)])
+        {
+            [self.delegate dataManagerLoadedAllData];
+        }
+    }
+}
+
+- (void)loadedPizzaPlacesFailedWithError:(NSError*)error
+{
+    NSLog(@"Load with error: %@", error);
+    
+    self.isLoading = NO;
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(dataManagerLoadingFailed)])
+    {
+        [self.delegate dataManagerLoadingFailed];
+    }
 }
 
 - (NSUInteger)pizzaPlacesCount
@@ -162,8 +240,15 @@
 
 - (void)saveData
 {
-    NSError *error = nil;
-    [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext saveToPersistentStore:&error];
+//    NSError *error = nil;
+//    [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext saveToPersistentStore:&error];
+//    
+//    NSLog(@"Save with error: %@", error);
+}
+
+- (void)clearAllData
+{
+    [[RKManagedObjectStore defaultStore] resetPersistentStores:nil];
 }
 
 #pragma mark - FetchedResultsController
