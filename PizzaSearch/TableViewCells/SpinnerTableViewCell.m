@@ -56,6 +56,13 @@
     [self.activityIndicator stopAnimating];
 }
 
+- (void)configureWithNoInterntConnectionStatus
+{
+    self.activityIndicator.hidden = YES;
+    self.messageLbl.text = @"No internet connection";
+    [self.activityIndicator stopAnimating];
+}
+
 - (void)configureWithStatus:(SpinnerTableViewCellStatus)status
 {
     switch (status) {
@@ -73,6 +80,10 @@
             
         case SpinnerTableViewCellStatusFailedToGetLocation:
             [self configureFailedToGetLocationStatus];
+            break;
+            
+        case SpinnerTableViewCellStatusNoInternetConnection:
+            [self configureWithNoInterntConnectionStatus];
             break;
     }
 }

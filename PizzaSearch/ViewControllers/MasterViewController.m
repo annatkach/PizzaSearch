@@ -313,6 +313,11 @@
     [self configureSpinnerCellWithStatus:SpinnerTableViewCellStatusFailedToGetLocation];
 }
 
+- (void)dataManagerFailedToConnect
+{
+    [self configureSpinnerCellWithStatus:SpinnerTableViewCellStatusNoInternetConnection];
+}
+
 - (void)configureSpinnerCellWithStatus:(SpinnerTableViewCellStatus)status
 {
     self.spinnerStatus = status;

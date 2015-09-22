@@ -14,6 +14,9 @@
 #import "Group.h"
 #import "Item.h"
 
+#import "Reachability.h"
+
+
 #define kFOURSQUARE_CLIENT_ID @"ODP3WHEFWHF1LL4CCN5LDIIMSZUK5IEIIY4WOICOZTMVXKTK"
 #define kFOURSQUARE_CLIENT_SECRET @"NGCGORWOOMPBKYJEXCOODSJXRCILSQERJGDDITAV2PL5ENUC"
 #define kFOURSQUARE_VERSION @"20150920"
@@ -35,6 +38,8 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *currentLocation;
 @property (nonatomic) BOOL loadingWaitLocation;
+
+@property (nonatomic) BOOL isInternetConnection;
 
 @end
 
@@ -60,13 +65,42 @@
 {
     if (self = [super init])
     {
-        [self configureLocationManager];
-        [self configureRestKit];
-        [self clearAllData];
-        [self setupFetchedResultsController];
+        Reachability* reachability = [Reachability reachabilityWithHostname:@"www.google.com"];
+        
+        self.isInternetConnection = reachability.isReachable;
+        
+        NSLog(@"Internet Connection - %@", self.isInternetConnection ? @"YES" : @"NO");
+        
+        if  (self.isInternetConnection)
+        {
+            [self setupWithConnection];
+        }
+        else
+        {
+            [self setupWithoutConnection];
+        }
     }
     
     return self;
+}
+
+- (void)setupWithConnection
+{
+    [self configureLocationManager];
+    [self configureRestKit];
+    [self clearAllData];
+    [self setupFetchedResultsController];
+}
+
+- (void)setupWithoutConnection
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(dataManagerFailedToConnect)])
+    {
+        [self.delegate dataManagerFailedToConnect];
+    }
+
+    [self configureRestKit];
+    [self setupFetchedResultsController];
 }
 
 #pragma mark - Location 
@@ -182,7 +216,7 @@
 
 - (void)loadPizzaPlaces
 {
-    if (self.currentLocation == nil)
+    if (self.isInternetConnection && self.currentLocation == nil)
     {
         self.loadingWaitLocation = YES;
     }
@@ -193,7 +227,6 @@
     }
     
     self.isLoading = YES;
-    
     
     CLLocation *curPos = self.locationManager.location;
     
@@ -219,19 +252,6 @@
                                            parameters:queryParams
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
                                               {
-                                                  id array = mappingResult.array;
-                                                  
-                                                  long count = 0;
-                                                  for (Group *group in array)
-                                                  {
-                                                      count += group.items.count;
-                                                      for (Item *item in group.items)
-                                                      {
-                                                          NSLog(@"item.vanue.name %@, %@m", item.pizzaPlace.name, item.pizzaPlace.distance);
-                                                      }
-                                                  }
-                                                  NSLog(@"0 ---loaded count %lu", count);
-                                                  
                                                   [self loadedPizzaPlacesSuccessfulWithPreviousPizzaPlacesCount:previousPizzaPlacesCount];
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error)
@@ -242,8 +262,6 @@
 
 - (void)loadedPizzaPlacesSuccessfulWithPreviousPizzaPlacesCount:(NSUInteger)previousPizzaPlacesCount
 {
-    [self saveData];
-    
     self.pageIndex ++;
 
     self.isLoading = NO;
@@ -254,7 +272,7 @@
     }
     
     NSUInteger pizzaPlacesCount = [self pizzaPlacesCount];
-    NSLog(@"[self pizzaPlacesCount] %lu", (unsigned long)[self pizzaPlacesCount]);
+    
     if ((pizzaPlacesCount - previousPizzaPlacesCount) < kFOURSQUARE_EXPLORE_LIMIT)
     {
         self.isLoadedAllData = YES;
@@ -290,14 +308,6 @@
     return (PizzaPlace*)object;
 }
 
-- (void)saveData
-{
-//    NSError *error = nil;
-//    [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext saveToPersistentStore:&error];
-//    
-//    NSLog(@"Save with error: %@", error);
-}
-
 - (void)clearAllData
 {
     [[RKManagedObjectStore defaultStore] resetPersistentStores:nil];
@@ -321,11 +331,22 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+    
+    NSUInteger count = [self pizzaPlacesCount];
+    NSLog(@"PizzaPlaces count %lu", (unsigned long)count);
 }
 
 - (void)setFetchedResultsControllerDelegate:(id<NSFetchedResultsControllerDelegate>)delegate
 {
     self.fetchedResultsController.delegate = delegate;
+    
+    if (!self.isInternetConnection)
+    {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(dataManagerFailedToConnect)])
+        {
+            [self.delegate dataManagerFailedToConnect];
+        }
+    }
 }
 
 @end

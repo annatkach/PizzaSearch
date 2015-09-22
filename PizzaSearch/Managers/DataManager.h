@@ -17,6 +17,7 @@
 - (void)dataManagerLoadedAllData;
 - (void)dataManagerLoadingFailed;
 - (void)dataManagerFailedToGetPosition;
+- (void)dataManagerFailedToConnect;
 
 @end
 

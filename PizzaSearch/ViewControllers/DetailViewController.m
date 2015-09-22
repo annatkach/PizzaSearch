@@ -42,7 +42,7 @@
         self.nameLbl.text = self.pizzaPlace.name;
         
         self.addressLbl.text = [NSString stringWithFormat:@"Distance: %@m", self.pizzaPlace.distance];
-        self.phoneLbl.text = [NSString stringWithFormat:@"Phone: %@m", self.pizzaPlace.phone];
+        self.phoneLbl.text = [NSString stringWithFormat:@"Phone: %@", self.pizzaPlace.phone];
         self.checkinsLbl.text = [NSString stringWithFormat:@"%@ checkins", self.pizzaPlace.checkinsCount];
         self.openUntilLbl.text = self.pizzaPlace.openUntil;
     }
