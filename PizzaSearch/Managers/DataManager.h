@@ -16,6 +16,7 @@
 - (void)dataManagerCompleteLoading;
 - (void)dataManagerLoadedAllData;
 - (void)dataManagerLoadingFailed;
+- (void)dataManagerFailedToGetPosition;
 
 @end
 

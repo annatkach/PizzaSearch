@@ -12,8 +12,9 @@ typedef enum SpinnerTableViewCellStatus
 {
     SpinnerTableViewCellStatusLoading = 0,
     SpinnerTableViewCellStatusAllDataLoaded = 1,
-    SpinnerTableViewCellStatusFailureLoading = 2
-}SpinnerTableViewCellStatus;
+    SpinnerTableViewCellStatusFailureLoading = 2,
+    SpinnerTableViewCellStatusFailedToGetLocation = 3
+} SpinnerTableViewCellStatus;
 
 @interface SpinnerTableViewCell : UITableViewCell
 

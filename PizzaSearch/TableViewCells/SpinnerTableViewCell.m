@@ -49,6 +49,13 @@
     [self.activityIndicator stopAnimating];
 }
 
+- (void)configureFailedToGetLocationStatus
+{
+    self.activityIndicator.hidden = YES;
+    self.messageLbl.text = @"Can not get a location";
+    [self.activityIndicator stopAnimating];
+}
+
 - (void)configureWithStatus:(SpinnerTableViewCellStatus)status
 {
     switch (status) {
@@ -62,6 +69,10 @@
             
         case SpinnerTableViewCellStatusFailureLoading:
            [self configureFailureStatus];
+            break;
+            
+        case SpinnerTableViewCellStatusFailedToGetLocation:
+            [self configureFailedToGetLocationStatus];
             break;
     }
 }

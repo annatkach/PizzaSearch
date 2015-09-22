@@ -9,6 +9,7 @@
 #import "DataManager.h"
 
 #import <RestKit/RestKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 #import "Group.h"
 #import "Item.h"
@@ -24,12 +25,16 @@
 #define kFOURSQUARE_EXPLORE_LIMIT 10
 #define kFOURSQUARE_CATEGORY_ID @"4bf58dd8d48988d1ca941735"
 
-@interface DataManager ()
+@interface DataManager () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic) NSUInteger pageIndex;
 @property (nonatomic) BOOL isLoading;
 @property (nonatomic) BOOL isLoadedAllData;
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLLocation *currentLocation;
+@property (nonatomic) BOOL loadingWaitLocation;
 
 @end
 
@@ -55,12 +60,48 @@
 {
     if (self = [super init])
     {
+        [self configureLocationManager];
         [self configureRestKit];
         [self clearAllData];
         [self setupFetchedResultsController];
     }
     
     return self;
+}
+
+#pragma mark - Location 
+
+- (void)configureLocationManager
+{
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    [self.locationManager requestWhenInUseAuthorization];
+    
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    self.currentLocation = newLocation;
+    
+    if (self.loadingWaitLocation)
+    {
+        [self loadPizzaPlaces];
+    }
+    
+    [self.locationManager stopUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+        didFailWithError:(NSError *)error
+{
+    NSLog(@"Core location error: %@", [error localizedDescription]);
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(dataManagerFailedToGetPosition)])
+    {
+        [self.delegate dataManagerFailedToGetPosition];
+    }
 }
 
 #pragma mark - RESTKit configuration
@@ -136,11 +177,16 @@
 
 - (BOOL)canLoad
 {
-    return !self.isLoadedAllData && !self.isLoading;
+    return !self.isLoadedAllData && !self.isLoading && self.currentLocation;
 }
 
 - (void)loadPizzaPlaces
 {
+    if (self.currentLocation == nil)
+    {
+        self.loadingWaitLocation = YES;
+    }
+    
     if (![self canLoad])
     {
         return;
@@ -148,10 +194,16 @@
     
     self.isLoading = YES;
     
-//    NSString *latLon = @"40.7029741,-74.2598672";
-    NSString *latLon = @"40.7143528,-74.0059731";
     
-    NSDictionary *queryParams = @{@"ll" : latLon,
+    CLLocation *curPos = self.locationManager.location;
+    
+    NSString *latitude = [[NSNumber numberWithDouble:curPos.coordinate.latitude] stringValue];
+    
+    NSString *longitude = [[NSNumber numberWithDouble:curPos.coordinate.longitude] stringValue];
+    
+    NSString *location = [NSString stringWithFormat:@"%@,%@", latitude, longitude];
+    
+    NSDictionary *queryParams = @{@"ll" : location,
                                   @"client_id" : kFOURSQUARE_CLIENT_ID,
                                   @"client_secret" : kFOURSQUARE_CLIENT_SECRET,
                                   @"categoryId" : kFOURSQUARE_CATEGORY_ID,
@@ -202,7 +254,7 @@
     }
     
     NSUInteger pizzaPlacesCount = [self pizzaPlacesCount];
-    NSLog(@"[self pizzaPlacesCount] %lu", [self pizzaPlacesCount]);
+    NSLog(@"[self pizzaPlacesCount] %lu", (unsigned long)[self pizzaPlacesCount]);
     if ((pizzaPlacesCount - previousPizzaPlacesCount) < kFOURSQUARE_EXPLORE_LIMIT)
     {
         self.isLoadedAllData = YES;

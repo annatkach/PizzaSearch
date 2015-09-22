@@ -25,6 +25,8 @@
 		847A83081BB0619F0044909D /* PizzaPlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A83061BB0619F0044909D /* PizzaPlaceTableViewCell.m */; };
 		847A83091BB0619F0044909D /* PizzaPlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847A83071BB0619F0044909D /* PizzaPlaceTableViewCell.xib */; };
 		847D5EDC1BAE946500D00FC3 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D5EDB1BAE946500D00FC3 /* DataManager.m */; };
+		84B0D4871BB1274E001F31A4 /* NewYork.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 84B0D4861BB1274E001F31A4 /* NewYork.gpx */; };
+		84B0D4891BB127FF001F31A4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B0D4881BB127FF001F31A4 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		847A83071BB0619F0044909D /* PizzaPlaceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PizzaPlaceTableViewCell.xib; sourceTree = "<group>"; };
 		847D5EDA1BAE946500D00FC3 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		847D5EDB1BAE946500D00FC3 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		84B0D4861BB1274E001F31A4 /* NewYork.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NewYork.gpx; sourceTree = "<group>"; };
+		84B0D4881BB127FF001F31A4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9F9B01DB19B736E7AB9856BB /* libPods-PizzaSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PizzaSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5516588267AEF5172F691FD /* Pods-PizzaSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaSearch/Pods-PizzaSearch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B0D4891BB127FF001F31A4 /* CoreLocation.framework in Frameworks */,
 				314C1264347E1821FC2AEA94 /* libPods-PizzaSearch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +109,7 @@
 		7D040EA157B005929F3DB8A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84B0D4881BB127FF001F31A4 /* CoreLocation.framework */,
 				9F9B01DB19B736E7AB9856BB /* libPods-PizzaSearch.a */,
 			);
 			name = Frameworks;
@@ -156,6 +162,7 @@
 		847700511BAD5585004EE1FB /* PizzaSearch */ = {
 			isa = PBXGroup;
 			children = (
+				84B0D4861BB1274E001F31A4 /* NewYork.gpx */,
 				847A82FF1BB05C4F0044909D /* TableViewCells */,
 				8467BE9F1BB00C89007DF6EE /* DataModels */,
 				8467BEA61BB00C89007DF6EE /* ViewControllers */,
@@ -304,6 +311,7 @@
 				847700641BAD5585004EE1FB /* Main.storyboard in Resources */,
 				847A83091BB0619F0044909D /* PizzaPlaceTableViewCell.xib in Resources */,
 				847700691BAD5585004EE1FB /* LaunchScreen.xib in Resources */,
+				84B0D4871BB1274E001F31A4 /* NewYork.gpx in Resources */,
 				847700661BAD5585004EE1FB /* Images.xcassets in Resources */,
 				847A83041BB05C6B0044909D /* SpinnerTableViewCell.xib in Resources */,
 			);

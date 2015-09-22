@@ -165,6 +165,8 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    
     // Remove seperator inset
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
         [cell setSeparatorInset:UIEdgeInsetsZero];
@@ -179,8 +181,6 @@
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)configurePizzaPlaceCell:(PizzaPlaceTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -262,14 +262,10 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-//    [self.tableView.layer removeAllAnimations];
-//    NSLog(@"%f, %f", self.tableViewOffset.y, self.tableView.contentOffset.y);
-    
     self.tableView.contentOffset = self.tableViewOffset;
     
     [self.tableView endUpdates];
 }
-
 
 #pragma mark - Table View Scroll
 
@@ -281,7 +277,7 @@
     }
     
     CGFloat actualPosition = scrollView.contentOffset.y;
-    CGFloat contentHeight = scrollView.contentSize.height - scrollView.frame.size.height - kSPINNER_ROW_HEIGHT;
+    CGFloat contentHeight = scrollView.contentSize.height - scrollView.frame.size.height - (kSPINNER_ROW_HEIGHT - 5);
     if (actualPosition >= contentHeight)
     {
         [self loadPizzaPlaces];
@@ -310,6 +306,11 @@
 - (void)dataManagerLoadingFailed
 {
     [self configureSpinnerCellWithStatus:SpinnerTableViewCellStatusFailureLoading];
+}
+
+- (void)dataManagerFailedToGetPosition
+{
+    [self configureSpinnerCellWithStatus:SpinnerTableViewCellStatusFailedToGetLocation];
 }
 
 - (void)configureSpinnerCellWithStatus:(SpinnerTableViewCellStatus)status
